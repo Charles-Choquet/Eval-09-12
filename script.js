@@ -99,7 +99,11 @@ formExo3.addEventListener("submit", (e) => {
       valide = true;
     }else if(jour<30 && moi ===2 && bisextile){
         valide=true;
-    }
+    }else if(jour<29&& moi===2){
+        valide=true
+    }else {
+        valide=false
+    }  
   }
 
   if (valide) {
@@ -112,8 +116,10 @@ formExo3.addEventListener("submit", (e) => {
 });
 
 function isBisextile(annee){
-    if((annee%4 ===0 ||annee%400===0) && annee%100!==0){
+    if((annee%4 ===0 &&annee%100!==0) ||annee%400===0){
         bisextile=true;
+    }else {
+        bisextile=false;
     }
 }
 
