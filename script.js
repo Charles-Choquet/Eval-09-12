@@ -204,8 +204,8 @@ function calculSchtroumpf(a,b){
     a.forEach(elementa => {
         b.forEach(elementb=>{
             produit=elementa*elementb
+            somme= somme +produit;
         })
-        somme= somme +produit;
     });
     console.log(somme);
     divExo6.insertAdjacentHTML("afterbegin",`Le calcul du schtroumpf est de ${somme}`);
