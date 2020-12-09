@@ -159,20 +159,29 @@ const formExo5=document.getElementById("formExo5");
 const inputNom=document.getElementById("nom");
 const inputPrenom=document.getElementById("prenom");
 const inputBIrthdate=document.getElementById("birthdate");
+const divExo5=document.getElementById("divExo5");
 
 let nom;
 let prenom;
 let birthdate;
+let reponseExo5;
 
 formExo5.addEventListener("submit",e=>{
     e.preventDefault();
     nom=inputNom.value;
     prenom=inputPrenom.value;
-    birthdate=inputBIrthdate.value;
+    birthdate=new Date(inputBIrthdate.value);
 
-    let now = Date();
-    console.log(birthdate);
-    console.log(now);
+    let now = new Date();
+    let age= Math.floor((now-birthdate)/1000/60/60/24/365.25);
+    let day=now.getDay();
+    let month=now.getMonth();
+    let dayB=birthdate.getDay();
+    let monthB=birthdate.getMonth();
+    if(day===dayB && month===monthB){
+        reponseExo5=`Joyeux ${age} ème anniversaire, ${nom} ${prenom}`
+    }
+    divExo5.insertAdjacentHTML("afterbegin",reponseExo5)
 })
 
 // Exercice 6
