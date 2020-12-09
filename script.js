@@ -153,3 +153,60 @@ formExo4Reponse.addEventListener("submit",e=>{
 
     divExo4.insertAdjacentHTML("afterbegin",exo4Reponse)
 })
+
+//Exercice 5
+const formExo5=document.getElementById("formExo5");
+const inputNom=document.getElementById("nom");
+const inputPrenom=document.getElementById("prenom");
+const inputBIrthdate=document.getElementById("birthdate");
+
+let nom;
+let prenom;
+let birthdate;
+
+formExo5.addEventListener("submit",e=>{
+    e.preventDefault();
+    nom=inputNom.value;
+    prenom=inputPrenom.value;
+    birthdate=inputBIrthdate.value;
+
+    let now = Date();
+    console.log(birthdate);
+    console.log(now);
+})
+
+// Exercice 6
+
+const formExo6Tab1=document.getElementById("formExo6Tab1");
+const formExo6Tab2=document.getElementById("formExo6Tab2");
+const inputTab1=document.getElementById("tab1");
+const inputTab2=document.getElementById("tab2");
+const buttonCalcul=document.getElementById("calcul");
+const divExo6=document.getElementById("divExo6");
+
+let tab1=[];
+let tab2=[];
+let produit;
+let somme=Number();
+
+formExo6Tab1.addEventListener("submit",e=>{
+    e.preventDefault();
+    tab1.push(Number(inputTab1.value));
+    console.log(tab1);
+})
+formExo6Tab2.addEventListener("submit",e=>{
+    e.preventDefault();
+    tab2.push(Number(inputTab2.value));
+    console.log(tab2);
+})
+
+function calculSchtroumpf(a,b){
+    a.forEach(elementa => {
+        b.forEach(elementb=>{
+            produit=elementa*elementb
+        })
+        somme= somme +produit;
+    });
+    console.log(somme);
+    divExo6.insertAdjacentHTML("afterbegin",`Le calcul du schtroumpf est de ${somme}`);
+}
