@@ -124,3 +124,32 @@ function isBisextile(annee){
 }
 
 //Exercice 4
+
+const formExo4Prix=document.getElementById("formExo4Prix");
+const formExo4Reponse=document.getElementById("formExo4Reponse");
+const inputPrix=document.getElementById("prix");
+const inputUserNumber=document.getElementById("userNumber");
+const divExo4=document.getElementById("divExo4");
+let prix;
+let userNumber;
+let exo4Reponse
+
+formExo4Prix.addEventListener("submit",e=>{
+    e.preventDefault();
+    prix=Number(inputPrix.value);
+})
+
+formExo4Reponse.addEventListener("submit",e=>{
+    divExo4.innerHTML="";
+    e.preventDefault();
+    userNumber=Number(inputUserNumber.value);
+    if(prix>userNumber){
+        exo4Reponse="Plus grand !"
+    }else if(prix<userNumber){
+        exo4Reponse="Plus petit !"
+    } else {
+        exo4Reponse= `Bravo le prix est bien de ${prix}`
+    }
+
+    divExo4.insertAdjacentHTML("afterbegin",exo4Reponse)
+})
